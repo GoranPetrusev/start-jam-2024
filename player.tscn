@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://8o0coq4dew14"]
+[gd_scene load_steps=5 format=3 uid="uid://8o0coq4dew14"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1b5u3"]
-[ext_resource type="Texture2D" uid="uid://c18yiw8kwlq1f" path="res://icon.svg" id="2_3ub7j"]
+
+[sub_resource type="Gradient" id="Gradient_cu1et"]
+colors = PackedColorArray(0.231373, 0.231373, 0.231373, 1, 0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_45vmk"]
+gradient = SubResource("Gradient_cu1et")
+width = 25
+height = 40
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms20f"]
 size = Vector2(25, 40)
@@ -10,8 +17,11 @@ size = Vector2(25, 40)
 script = ExtResource("1_1b5u3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.320001)
-texture = ExtResource("2_3ub7j")
+texture = SubResource("GradientTexture2D_45vmk")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ms20f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
